@@ -15,12 +15,12 @@ public protocol MenuViewCustomizable {
     var animationDuration: NSTimeInterval { get }
     var deceleratingRate: CGFloat { get }
     var selectedItemCenter: Bool { get }
-    var displayMode: MenuDisplayMode { get }
-    var focusMode: MenuFocusMode { get }
+    var displayMode: MenuDisplayMode { get set }
+    var focusMode: MenuFocusMode { get set }
     var dummyItemViewsSet: Int { get }
     var menuPosition: MenuPosition { get }
     var dividerImage: UIImage? { get }
-    var itemsOptions: [MenuItemViewCustomizable] { get }
+    var itemsOptions: [MenuItemViewCustomizable] { get set }
 }
 
 public extension MenuViewCustomizable {

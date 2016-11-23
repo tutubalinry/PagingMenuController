@@ -15,7 +15,7 @@ public protocol PagingMenuControllerCustomizable {
     var backgroundColor: UIColor { get }
     var lazyLoadingPage: LazyLoadingPage { get }
     var menuControllerSet: MenuControllerSet { get }
-    var componentType: ComponentType { get }
+    var componentType: ComponentType { get set }
 }
 
 public extension PagingMenuControllerCustomizable {

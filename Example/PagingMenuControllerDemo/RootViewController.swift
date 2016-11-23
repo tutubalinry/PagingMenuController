@@ -39,23 +39,45 @@ private enum Section {
         case .All(let content):
             switch content {
             case .Standard:
-                options = PagingMenuOptions1()
+                options = PagingMenuOptions()
+                let menuOptions = MenuOptions()
+                menuOptions.itemsOptions = [MenuItem(), MenuItem(), MenuItem(), MenuItem()]
+                options.componentType = .All(menuOptions: menuOptions, pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             case .SegmentedControl:
-                options = PagingMenuOptions2()
+                options = PagingMenuOptions()
+                let menuOptions = MenuOptions()
+                menuOptions.displayMode = .SegmentedControl
+                menuOptions.itemsOptions = [MenuItem(), MenuItem(), MenuItem(), MenuItem()]
+                options.componentType = .All(menuOptions: menuOptions, pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             case .Infinite:
-                options = PagingMenuOptions3()
+                options = PagingMenuOptions()
+                let menuOptions = MenuOptions()
+                menuOptions.displayMode = .Infinite(widthMode: .Flexible, scrollingMode: .ScrollEnabled)
+                menuOptions.itemsOptions = [MenuItem(), MenuItem(), MenuItem(), MenuItem()]
+                options.componentType = .All(menuOptions: menuOptions, pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             }
         case .MenuView(let content):
             switch content {
             case .Underline:
-                options = PagingMenuOptions4()
+                options = PagingMenuOptions()
+                let menuOptions = MenuOptions()
+                menuOptions.displayMode = .SegmentedControl
+                menuOptions.focusMode = .Underline(height: 3, color: UIColor.blueColor(), horizontalPadding: 10, verticalPadding: 0)
+                menuOptions.itemsOptions = [MenuItem(), MenuItem(), MenuItem(), MenuItem()]
+                options.componentType = .All(menuOptions: menuOptions, pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             case .RoundRect:
-                options = PagingMenuOptions5()
+                options = PagingMenuOptions()
+                let menuOptions = MenuOptions()
+                menuOptions.displayMode = .Infinite(widthMode: .Flexible, scrollingMode: .PagingEnabled)
+                menuOptions.focusMode = .RoundRect(radius: 12, horizontalPadding: 8, verticalPadding: 8, selectedColor: UIColor.lightGrayColor())
+                menuOptions.itemsOptions = [MenuItem(), MenuItem(), MenuItem(), MenuItem()]
+                options.componentType = .All(menuOptions: menuOptions, pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             }
         case .MenuController(let content):
             switch content {
             case .Standard:
-                options = PagingMenuOptions6()
+                options = PagingMenuOptions()
+                options.componentType = .PagingController(pagingControllers: [UsersViewController.instantiateFromStoryboard(), RepositoriesViewController.instantiateFromStoryboard(), GistsViewController.instantiateFromStoryboard(), OrganizationsViewController.instantiateFromStoryboard()])
             }
         }
         return options

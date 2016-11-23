@@ -10,7 +10,7 @@ import Foundation
 
 public protocol MenuItemViewCustomizable {
     var horizontalMargin: CGFloat { get }
-    var displayMode: MenuItemDisplayMode { get }
+    var displayMode: MenuItemDisplayMode { get set }
 }
 
 public extension MenuItemViewCustomizable {
